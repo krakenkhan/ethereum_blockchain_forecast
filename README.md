@@ -1,4 +1,4 @@
-Ethereum Price Prediction using Cellular Learning Automata.
+# Ethereum Price Prediction using Cellular Learning Automata.
 
 ---
 
