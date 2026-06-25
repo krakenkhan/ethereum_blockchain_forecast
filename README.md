@@ -1,21 +1,14 @@
 Ethereum Price Prediction using Cellular Learning Automata.
 
-The module will be taught at GISMA Business School in its AI studio.The module will be delivered in GISMA Business School's AI studio.
-The assessment for this module is an Individual Project.There is a single assessment for this module which is an Individual Project due on 3 July 2026.
-
 ---
 
 ## Overview
 
 This project uses Cellular Learning Automata (CLA) based method to predict the closing price of the Ethereum cryptocurrency (ETH/USD) on a daily basis. Each of the seven Learning Automata (LAs) is associated with one lag of the price series and learns optimal weighting schemes using the Linear Reward-Inaction (LRI) reinforcement rule. The model is trained on the year 2024 and tested on the first 30 days of January 2025.
 
-No external Machine Learning libraries (sklearn, PyTorch, TensorFlow) are used. The whole implementation is done in a single Colab notebok, download data and model, validate, forecast and plot.
-
 ---
 
 ## Run in Google Colab
-
-Run all cells sequentially in order on top to bottom in Google Colab when you open the file eth_ca_forecast.ipynb. No installation needed locally.
 
 The following dependencies are automatically installed in Cell 1:
 ```
@@ -74,8 +67,7 @@ CLA class that fits and predicts next actions as a probability matrix, named CLA
 Validation: 30-day walk forward on Dec 2024, vs. naive baseline |
 8 years of training = 366 retraining days |
 Forecast for 9-30 days ahead of the forecast period | Walk-forward forecast for Jan 2025 (vs actuals)
-Plots | Price history + forecast vs actual | 10 —
-12 — Appendix | Appendix A: Media research conducted by the Aljamiado College of Theology |
+Plots | Price history + forecast vs actual | 
 
 ---
 
@@ -102,6 +94,8 @@ The hold-out window for validation.Determines the number of days that will be he
 
 On the validation window, the CLA doesn't outperform the naive baseline. This should be expected: Crypto prices have high autocorrelation – persistence is a good baseline. Errors are limited and fixed.
 
+![30-Day Walk-Forward Validation: CLA vs Naive Baseline (Dec 2024)](images/cla_vs_naive_dec2024.png)
+
 ### 30-Day Out-of-Sample Forecast (Jan 2025)
 
 | Metric | Value |
@@ -112,6 +106,7 @@ On the validation window, the CLA doesn't outperform the naive baseline. This sh
 | Worst single-day error | 9.47% (9 Jan) |
 
 The walk-forward forecast incorporates actual prices into the historical record at each iteration, unlike the recursive forecast which is based on convergence at a fixed point.
+![CLA 30-Day Forecast vs Actual (Jan 2025)](images/cla_forecast_jan2025.png)
 
 ### Learned Weight Matrix
 
@@ -133,8 +128,8 @@ Following full year training the automata brought together to deterministic weig
 
 ```
 eth-ca-forecast/
-├── eth_ca_forecast.ipynb   # Main notebook — submit this
-├── README.md               # This file
+├── eth_ca_forecast.ipynb  
+├── README.md          
 ```
 
 ---
@@ -144,9 +139,3 @@ eth-ca-forecast/
 - Narendra, K.S. and Thathachar, M.A.L. (1989) Learning Automata: An Introduction. Prentice-Hall.
 Reinforcement Learning: An Introduction by Sutton, R.S. and Barto, A.G. (2018) 2nd edn. MIT Press.
 - Aroussi, R. (2019) *yfinance*. https://github.com/ranaroussi/yfinance
-
----
-
-## AI Disclosure
-
-Developed with AI assistance (Claude, Anthropic). The professor for the AI Studio module explicitly allows for using AI in this assessment.
